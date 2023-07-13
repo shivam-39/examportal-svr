@@ -22,7 +22,7 @@ public class ExamportalApplication implements CommandLineRunner {
 	}
 
 	@Autowired
-	UserService userService;
+	private UserService userService;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -36,7 +36,7 @@ public class ExamportalApplication implements CommandLineRunner {
 //		user1.setProfileImgPath("/src/default.png");
 //
 //		Role role1 = new Role();
-//		role1.setRoleId(13L);
+//		role1.setRoleId(44L);
 //		role1.setRoleName("ADMIN");
 //
 //		UserRole userRole = new UserRole();

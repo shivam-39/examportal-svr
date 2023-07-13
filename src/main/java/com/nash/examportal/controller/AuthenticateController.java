@@ -1,6 +1,7 @@
 package com.nash.examportal.controller;
 
 import com.nash.examportal.config.JwtUtils;
+import com.nash.examportal.helper.UserNotFoundException;
 import com.nash.examportal.model.JwtRequest;
 import com.nash.examportal.model.JwtResponse;
 import com.nash.examportal.model.User;
@@ -34,7 +35,7 @@ public class AuthenticateController {
     public ResponseEntity<?> generateToken(@RequestBody JwtRequest jwtRequest) throws Exception {
         try {
             this.authenticate(jwtRequest.getUsername(), jwtRequest.getPassword());
-        }catch (UsernameNotFoundException e){
+        }catch (UserNotFoundException e){
             e.printStackTrace();
             throw new Exception("User not found");
         }

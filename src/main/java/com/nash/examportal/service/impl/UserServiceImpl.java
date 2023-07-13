@@ -1,5 +1,6 @@
 package com.nash.examportal.service.impl;
 
+import com.nash.examportal.helper.UserFoundException;
 import com.nash.examportal.model.User;
 import com.nash.examportal.model.UserRole;
 import com.nash.examportal.repository.RoleRepository;
@@ -20,15 +21,12 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private RoleRepository roleRepository;
 
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
     @Override
     public User createUser(User user, Set<UserRole> userRoleSet) throws Exception {
-
         User local = this.userRepository.findByUsername(user.getUsername());
         if(local != null){
             System.out.println("User is already there!!");
-            throw new Exception("User already exists!!");
+            throw new UserFoundException("User already exists!!");
         }else{
             for(UserRole ur:userRoleSet){
                 roleRepository.save(ur.getRole());
