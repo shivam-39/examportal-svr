@@ -4,6 +4,7 @@ import com.nash.examportal.model.Question;
 import com.nash.examportal.model.Quiz;
 
 import java.util.List;
+import java.util.Map;
 
 public interface QuestionService {
 
@@ -20,4 +21,6 @@ public interface QuestionService {
     public void deleteQuestion(Long qId);
 
     public List<Question> getQuestionByQuiz(Long qId);
+
+    Map<String, Double> evaluateQuiz(List<Question> questionList);
 }
