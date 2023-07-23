@@ -9,7 +9,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user_roles")
+@Table(name = "USER_ROLES")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -20,10 +20,10 @@ public class UserRole {
     private Integer userRoleId;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @Name("user_id")
+    @Name("USER_ID")
     private User user;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @Name("role_id")
+    @Name("ROLE_ID")
     private Role role;
 }

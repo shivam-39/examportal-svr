@@ -1,16 +1,14 @@
 package com.nash.examportal;
 
-import com.nash.examportal.model.Role;
-import com.nash.examportal.model.User;
-import com.nash.examportal.model.UserRole;
-import com.nash.examportal.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.HashSet;
-import java.util.Set;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
 
 @SpringBootApplication
 public class ExamportalApplication implements CommandLineRunner {
@@ -20,9 +18,6 @@ public class ExamportalApplication implements CommandLineRunner {
 		SpringApplication.run(ExamportalApplication.class, args);
 		System.out.println("------Application Started---------");
 	}
-
-	@Autowired
-	private UserService userService;
 
 	@Override
 	public void run(String... args) throws Exception {
