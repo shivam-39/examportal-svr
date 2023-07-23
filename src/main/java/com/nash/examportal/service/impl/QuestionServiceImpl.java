@@ -36,13 +36,15 @@ public class QuestionServiceImpl implements QuestionService {
         return this.questionRepository.findAll();
     }
 
-//    @Override
-//    public List<Question> getQuestionByQuiz(Long qId) {
-//        return this.questionRepository.findByQuiz(qId);
-//    }
+    @Override
+    public List<Question> getAllQuestionByQuiz(Long qId) {
+        Quiz quiz = new Quiz();
+        quiz.setQId(qId);
+        return this.questionRepository.findByQuiz(quiz);
+    }
 
     @Override
-    public List<Question> getQuestionWithNumberOfQuesInQuiz(Long qId) {
+    public List<Question> getQuestionByQuiz(Long qId) {
         Quiz quiz = this.quizService.getQuiz(qId);
         List<Question> questionList= new ArrayList<>(quiz.getQuestionSet());
         Collections.shuffle(questionList);

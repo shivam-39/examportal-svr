@@ -13,11 +13,11 @@ public interface QuestionService {
 
     public List<Question> getAllQuestion();
 
-//    public List<Question> getQuestionByQuiz(Long qId);
+    public List<Question> getAllQuestionByQuiz(Long qId);
 
     public Question getQuestion(Long qId);
 
     public void deleteQuestion(Long qId);
 
-    public List<Question> getQuestionWithNumberOfQuesInQuiz(Long qId);
+    public List<Question> getQuestionByQuiz(Long qId);
 }

@@ -32,15 +32,15 @@ public class QuestionController {
         return ResponseEntity.ok(this.questionService.getAllQuestion());
     }
 
-    //getQuestionByQuiz
-//    @GetMapping("/quiz-ques/{qId}")
-//    public ResponseEntity<?> getQuestionByQuiz(@PathVariable Long qId){
-//        return ResponseEntity.ok(this.questionService.getQuestionByQuiz(qId));
-//    }
+//    getQuestionByQuiz
+    @GetMapping("/quiz/all/{qId}")
+    public ResponseEntity<?> getAllQuestionByQuiz(@PathVariable Long qId){
+        return ResponseEntity.ok(this.questionService.getAllQuestionByQuiz(qId));
+    }
 
     @GetMapping("/quiz/{qId}")
-    public ResponseEntity<?> getQuestionWithNumberOfQuesInQuiz(@PathVariable Long qId){
-        return ResponseEntity.ok(this.questionService.getQuestionWithNumberOfQuesInQuiz(qId));
+    public ResponseEntity<?> getQuestionByQuiz(@PathVariable Long qId){
+        return ResponseEntity.ok(this.questionService.getQuestionByQuiz(qId));
     }
 
     //getQuestion

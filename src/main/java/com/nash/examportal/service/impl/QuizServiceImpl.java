@@ -1,5 +1,6 @@
 package com.nash.examportal.service.impl;
 
+import com.nash.examportal.model.Category;
 import com.nash.examportal.model.Quiz;
 import com.nash.examportal.repository.QuizRepository;
 import com.nash.examportal.service.QuizService;
@@ -38,4 +39,24 @@ public class QuizServiceImpl implements QuizService {
     public void deleteQuiz(Long qId) {
         this.quizRepository.deleteById(qId);
     }
+
+    @Override
+    public List<Quiz> getQuizByCategory(Long cId) {
+        Category category = new Category();
+        category.setCId(cId);
+        return this.quizRepository.findByCategory(category);
+    }
+
+    @Override
+    public List<Quiz> getQuizByActive(){
+        return this.quizRepository.findByActive(true);
+    }
+
+    @Override
+    public List<Quiz> getQuizByCategoryAndActive(Long cId){
+        Category category = new Category();
+        category.setCId(cId);
+        return this.quizRepository.findByCategoryAndActive(category, true);
+    }
+
 }
